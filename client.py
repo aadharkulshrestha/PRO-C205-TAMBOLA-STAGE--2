@@ -4,7 +4,6 @@ import tkinter as tk
 from  threading import Thread
 import random
 from PIL import ImageTk, Image
-from tkmacosx import Button  # For Mac users only
 import platform
 
 
@@ -41,23 +40,9 @@ def createTicket():
     for row in range(0, 3):
         rowList = []
         for col in range(0, 9):
-            if(platform.system() == 'Darwin'):
-                # For Mac users
-                boxButton = Button(gameWindow,
-                font = ("Chalkboard SE",18),
-                borderwidth=3,
-                pady=23,
-                padx=-22,
-                bg="#fff176", # Initial Yellow color
-                highlightbackground='#fff176',
-                activebackground='#c5e1a5') # onPress Green Color
-
-
-                boxButton.place(x=xPos, y=yPos)
-            else:
-                # For windows users
-                boxButton = tk.Button(gameWindow, font=("Chalkboard SE",30), width=3, height=2,borderwidth=5, bg="#fff176")
-                boxButton.place(x=xPos, y=yPos)
+            
+            boxButton = tk.Button(gameWindow, font=("Chalkboard SE",30), width=3, height=2,borderwidth=5, bg="#fff176")
+            boxButton.place(x=xPos, y=yPos)
 
             rowList.append(boxButton)
             xPos += 64
@@ -196,13 +181,3 @@ setup()
 
 
 
-
-
-
-
-
-
-# NOTE:
-    # Creating Game Window
-    # creating Ticket
-    # Placing Numbers Inside ticket
